@@ -59,7 +59,7 @@
         const translations = {
             en: {
                 title: 'TECHNOMARE AE', home: 'Home', naval: 'Ship Registration', piers: 'Harbor Piers', villas: 'Construction',
-                welcome: 'TECHNOMARE AE', subtitle: 'Your Trusted Partner in Maritime & Construction',
+                welcome: 'Welcome to TECHNOMARE AE', subtitle: 'Your Trusted Partner in Maritime & Construction',
                 description: 'We are a leading authority specializing in comprehensive maritime registration, harbor pier certification, and luxury villa construction services.',
                 ourServices: 'Our Services',
                 shipReg: 'Ship Registration', shipRegDesc: 'Complete registration services for commercial vessels, yachts, and maritime fleet management.',
@@ -70,7 +70,10 @@
                 name: 'Full Name', email: 'Email Address', phone: 'Phone Number', subject: 'Subject', message: 'Message', send: 'Send Message',
                 ourLocation: 'Our Location', locationDesc: 'Visit our office in Lefkada for in-person consultation.', success: 'Thank you! Your message has been sent successfully.',
                 contact: 'Contact Information', address: 'Lefkada Marina 31100 Greece', rights: 'All rights reserved.',
-                gallery: 'Photo Gallery', navalTitle: 'Ship Registration Services', piersTitle: 'Harbor Pier Registration Services', villaTitle: 'Villa Construction Services'
+                gallery: 'Photo Gallery', navalTitle: 'Ship Registration Services', piersTitle: 'Harbor Pier Registration Services', villaTitle: 'Villa Construction Services',
+                navalDesc: 'We provide comprehensive ship registration services for all vessel types. From commercial cargo ships to luxury yachts, our experienced team ensures full compliance with international maritime regulations and Greek law.',
+                piersDesc: 'Professional certification and registration services for harbor piers, marinas, docks, and maritime infrastructure. We ensure all structures meet safety standards and regulatory requirements for safe operation.',
+                villaDesc: 'Expert construction and design services for luxury villas and residences. Our team delivers high-quality builds with attention to detail, modern architecture, and sustainable construction practices.'
             },
             el: {
                 title: 'TECHNOMARE AE', home: 'Αρχική', naval: 'Εγγραφή Πλοίων', piers: 'Προβλήτες Λιμένων', villas: 'Κατασκευαστική',
@@ -85,7 +88,10 @@
                 name: 'Ονοματεπώνυμο', email: 'Διεύθυνση Email', phone: 'Τηλέφωνο', subject: 'Θέμα', message: 'Μήνυμα', send: 'Αποστολή Μηνύματος',
                 ourLocation: 'Η Τοποθεσία μας', locationDesc: 'Επισκεφθείτε τα γραφεία μας στη Λευκάδα για προσωπική συμβουλευτική.', success: 'Σας ευχαριστούμε! Το μήνυμά σας στάλθηκε επιτυχώς.',
                 contact: 'Στοιχεία Επικοινωνίας', address: 'Μαρίνα Λευκάδας 31100 Ελλάδα', rights: 'Όλα τα δικαιώματα κατοχυρωμένα.',
-                gallery: 'Φωτογραφίες', navalTitle: 'Υπηρεσίες Εγγραφής Πλοίων', piersTitle: 'Υπηρεσίες Εγγραφής Λιμενικών Προβλητών', villaTitle: 'Υπηρεσίες Κατασκευής Βιλών'
+                gallery: 'Φωτογραφίες', navalTitle: 'Υπηρεσίες Εγγραφής Πλοίων', piersTitle: 'Υπηρεσίες Εγγραφής Λιμενικών Προβλητών', villaTitle: 'Υπηρεσίες Κατασκευής Βιλών',
+                navalDesc: 'Παρέχουμε ολοκληρωμένες υπηρεσίες εγγραφής πλοίων για όλους τους τύπους σκαφών. Από εμπορικά φορτηγά πλοία έως πολυτελή yachts, η έμπειρη ομάδα μας εξασφαλίζει πλήρη συμμόρφωση με τους διεθνείς ναυτιλιακούς κανονισμούς και την ελληνική νομοθεσία.',
+                piersDesc: 'Επαγγελματικές υπηρεσίες πιστοποίησης και εγγραφής για λιμενικούς προβλήτες, μαρίνες, αποβάθρες και ναυτιλιακή υποδομή. Διασφαλίζουμε ότι όλες οι κατασκευές πληρούν τα πρότυπα ασφαλείας και τις κανονιστικές απαιτήσεις για ασφαλή λειτουργία.',
+                villaDesc: 'Εξειδικευμένες υπηρεσίες κατασκευής και σχεδιασμού πολυτελών βιλών και κατοικιών. Η ομάδα μας παραδίδει κατασκευές υψηλής ποιότητας με προσοχή στη λεπτομέρεια, μοντέρνα αρχιτεκτονική και βιώσιμες πρακτικές κατασκευής.'
             }
         };
 
@@ -157,6 +163,11 @@
 
             const t = translations[language];
             
+            // Scroll to top when page changes
+            useEffect(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, [page]);
+            
             useEffect(() => {
                 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
                 const observer = new IntersectionObserver((entries) => {
@@ -190,9 +201,12 @@
                 setTimeout(() => setSubmitted(false), 5000);
             };
 
-            const Gallery = ({ images, title }) => h('section', { className: 'py-12 bg-white fade-in-section is-visible' },
+            const Gallery = ({ images, title, description }) => h('section', { className: 'py-12 bg-white fade-in-section is-visible' },
                 h('div', { className: 'container mx-auto px-4' },
-                    h('h2', { className: 'text-3xl font-bold text-navy-800 mb-8 text-center' }, title),
+                    h('div', { className: 'max-w-4xl mx-auto mb-12 text-center' },
+                        h('h2', { className: 'text-3xl font-bold text-navy-800 mb-4' }, title),
+                        description && h('p', { className: 'text-lg text-gray-700 leading-relaxed' }, description)
+                    ),
                     h('div', { className: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4' },
                         ...images.map((img, i) =>
                             h('div', { key: i, onClick: () => setLightbox({ images, index: i }), className: 'relative aspect-video overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all cursor-pointer group', style: { opacity: 1, transform: 'translateY(0)' } },
@@ -282,9 +296,9 @@
                             )
                         )
                     ),
-                    page === 'naval' && h(Gallery, { images: shipImages, title: t.navalTitle }),
-                    page === 'piers' && h(Gallery, { images: pierImages, title: t.piersTitle }),
-                    page === 'villas' && h(Gallery, { images: allVillaImages, title: t.villaTitle })
+                    page === 'naval' && h(Gallery, { images: shipImages, title: t.navalTitle, description: t.navalDesc }),
+                    page === 'piers' && h(Gallery, { images: pierImages, title: t.piersTitle, description: t.piersDesc }),
+                    page === 'villas' && h(Gallery, { images: allVillaImages, title: t.villaTitle, description: t.villaDesc })
                 ),
 
                 lightbox && h('div', { onClick: () => setLightbox(null), className: 'fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4' },
@@ -305,7 +319,7 @@
                             h('div', null, h('h3', { className: 'font-semibold mb-1' }, 'Email'), h('a', { href: 'mailto:info@technomare.com', className: 'text-sm text-navy-200 hover:text-white transition-colors' }, 'info@technomare.com'))
                         ),
                         h('div', { className: 'border-t border-navy-700 mt-6 pt-6 text-center text-sm text-navy-300' },
-                            h('p', { dangerouslySetInnerHTML: { __html: '© 2026 TECHNOMARE AE. ' + t.rights + ' Κατασκευή συντήρηση <a href="https://vrettoscomputers.gr/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">_VrettosComputers_</a>' } })
+                            h('p', { dangerouslySetInnerHTML: { __html: '© 2026 TECHNOMARE AE. ' + t.rights + ' Κατασκευή συντήρηση <a href="https://vrettoscomputers.gr/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">VrettosComputers</a>' } })
                         )
                     )
                 )
