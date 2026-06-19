@@ -44,6 +44,26 @@
         .stagger-item { opacity: 0; }
         a[href^="tel:"], a[href^="mailto:"] { cursor: pointer; text-decoration: none; }
         a[href^="tel:"]:hover, a[href^="mailto:"]:hover { text-decoration: underline; }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        /* Hamburger icon animation */
+        .hamburger {
+            transition: transform 0.3s ease-in-out;
+        }
+        .hamburger.active {
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 <body class="bg-slate-50">
@@ -236,19 +256,21 @@
                                 className: 'md:hidden bg-navy-600 hover:bg-navy-700 text-white p-3 rounded-lg transition-colors',
                                 'aria-label': 'Menu'
                             },
-                                h('span', { className: 'block w-6 text-2xl leading-none' }, menuOpen ? '✕' : '☰')
+                                h('span', { className: 'hamburger block w-6 text-2xl leading-none ' + (menuOpen ? 'active' : '') }, menuOpen ? '✕' : '☰')
                             )
                         ),
                         // Navigation
-                        h('nav', { className: (menuOpen ? 'block' : 'hidden') + ' md:block mt-4' },
-                            h('ul', { className: 'flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-6' },
-                                h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('home'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100' }, t.home)),
-                                h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('naval'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100' }, t.naval)),
-                                h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('piers'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100' }, t.piers)),
-                                h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('villas'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0' }, t.villas)),
-                                // Language button - right of Κατασκευαστική
-                                h('li', { className: 'mt-2 md:mt-0' },
-                                    h('button', { onClick: () => setLanguage(language === 'en' ? 'el' : 'en'), className: 'bg-navy-600 hover:bg-navy-700 text-white px-5 py-2 rounded-lg transition-colors font-medium text-lg w-full md:w-auto' }, language === 'en' ? 'ΕΛ' : 'EN')
+                        h('nav', { className: 'md:block mt-4' },
+                            h('div', { className: (menuOpen ? 'mobile-menu open' : 'mobile-menu') + ' md:!max-h-none md:!opacity-100' },
+                                h('ul', { className: 'flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-6' },
+                                    h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('home'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100' }, t.home)),
+                                    h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('naval'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100' }, t.naval)),
+                                    h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('piers'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100' }, t.piers)),
+                                    h('li', null, h('a', { href: '#', onClick: (e) => { e.preventDefault(); setPage('villas'); setMenuOpen(false); }, className: 'hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0' }, t.villas)),
+                                    // Language button - right of Κατασκευαστική
+                                    h('li', { className: 'mt-2 md:mt-0' },
+                                        h('button', { onClick: () => setLanguage(language === 'en' ? 'el' : 'en'), className: 'bg-navy-600 hover:bg-navy-700 text-white px-5 py-2 rounded-lg transition-colors font-medium text-lg w-full md:w-auto' }, language === 'en' ? 'ΕΛ' : 'EN')
+                                    )
                                 )
                             )
                         )
