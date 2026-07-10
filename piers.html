@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHNOMARE AE - ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ</title>
+    <link rel="icon" type="image/png" href="photos/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': {
+                            50: '#f0f9ff', 100: '#e0f2fe', 200: '#b9e1fe', 300: '#7cc9fd',
+                            400: '#36affa', 500: '#0c93e9', 600: '#0078d4', 700: '#0161a8',
+                            800: '#065189', 900: '#0b4472', 950: '#072b4b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out; opacity: 0; }
+        .mobile-menu.open { max-height: 500px; opacity: 1; }
+        .hamburger { transition: transform 0.3s ease-in-out; }
+        .hamburger.active { transform: rotate(90deg); }
+        a[href^="tel:"], a[href^="mailto:"] { cursor: pointer; text-decoration: none; }
+        a[href^="tel:"]:hover, a[href^="mailto:"]:hover { text-decoration: underline; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+<!-- Header -->
+<header class="bg-navy-50 text-navy-900 shadow-lg">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="photos/logo.png" alt="TECHNOMARE Logo" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <div>
+                    <h1 class="text-2xl md:text-4xl font-bold" data-i18n="title">TECHNOMARE AE</h1>
+                    <p class="text-sm md:text-lg text-navy-600">ΝΑΥΤΙΛΙΑΚΗ - ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ</p>
+                </div>
+            </a>
+            <button id="menuBtn" class="md:hidden bg-navy-600 hover:bg-navy-700 text-white p-3 rounded-lg transition-colors" aria-label="Menu">
+                <span id="menuIcon" class="hamburger block w-6 text-2xl leading-none">☰</span>
+            </button>
+        </div>
+        <nav class="md:block mt-4">
+            <div id="mobileMenu" class="mobile-menu md:!max-h-none md:!opacity-100">
+                <ul class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-6">
+                    <li><a href="index.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100" data-i18n="home">ΑΡΧΙΚΗ</a></li>
+                    <li><a href="naval.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100" data-i18n="naval">ΝΑΥΤΙΛΙΑΚΑ</a></li>
+                    <li><a href="piers.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0 border-b md:border-0 border-navy-100" data-i18n="piers">ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ</a></li>
+                    <li><a href="villas.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 md:py-0" data-i18n="villas">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ</a></li>
+                    <li class="mt-2 md:mt-0"><button id="langBtn" class="bg-navy-600 hover:bg-navy-700 text-white px-5 py-2 rounded-lg transition-colors font-medium text-lg w-full md:w-auto">EN</button></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Main -->
+<main class="flex-grow">
+    <section class="py-8 md:py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto mb-8 md:mb-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-4" data-i18n="piersTitle">ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ</h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed" data-i18n="piersDesc">Επαγγελματικές υπηρεσίες αδειοδότησης και πιστοποίησης για λιμενικούς προβλήτες, μαρίνες, αποβάθρες και ναυτιλιακή υποδομή. Διασφαλίζουμε ότι όλες οι κατασκευές πληρούν τα πρότυπα ασφαλείας και τις κανονιστικές απαιτήσεις για τη χορήγηση των απαραίτητων αδειών λειτουργίας.</p>
+            </div>
+            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+        </div>
+    </section>
+</main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4" style="display:none">
+    <button id="lbClose" class="absolute top-4 right-4 text-white text-4xl hover:text-blue-300 z-10">×</button>
+    <button id="lbPrev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white text-5xl md:text-6xl hover:text-blue-300 z-10 bg-black/30 hover:bg-black/50 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full transition-colors">‹</button>
+    <button id="lbNext" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white text-5xl md:text-6xl hover:text-blue-300 z-10 bg-black/30 hover:bg-black/50 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full transition-colors">›</button>
+    <div class="max-w-7xl max-h-full flex flex-col items-center">
+        <img id="lbImg" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg">
+        <p id="lbCaption" class="text-white text-center mt-4 text-lg"></p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-navy-900 text-white py-8 mt-auto">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-6 text-center md:text-left">
+            <div>
+                <h3 class="font-semibold mb-1" data-i18n="contact">Στοιχεία Επικοινωνίας</h3>
+                <p class="text-sm text-navy-200" data-i18n="address">Μαρίνα Λευκάδας 31100 Ελλάδα</p>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-1">Phone</h3>
+                <a href="tel:+302645021063" class="text-sm text-navy-200 hover:text-white transition-colors block">+30 2645021063</a>
+                <a href="tel:+306974191113" class="text-sm text-navy-200 hover:text-white transition-colors block">+30 6974191113</a>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-1">Email</h3>
+                <a href="mailto:info@technomare.com" class="text-sm text-navy-200 hover:text-white transition-colors block">info@technomare.com</a>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-1">Instagram</h3>
+                <a href="https://www.instagram.com/technomare/" target="_blank" rel="noopener noreferrer" class="text-sm text-navy-200 hover:text-white transition-colors flex items-center gap-2 justify-center md:justify-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    Follow us on Instagram
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-navy-700 mt-6 pt-6 text-center text-sm text-navy-300">
+            <p>© 2026 TECHNOMARE AE. <span data-i18n="rights">Όλα τα δικαιώματα κατοχυρωμένα.</span> Κατασκευή συντήρηση <a href="https://www.vrettoscomputers.gr/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">VrettosComputers</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const pierImages = [
+    'photos/9793490.jpg','photos/10642986.jpg','photos/31248570.jpg','photos/8589388.jpg',
+    'photos/8589387.jpg','photos/36725722.jpg','photos/3471326.jpg','photos/31301816.jpg',
+    'photos/6859079.jpg','photos/631049.jpg','photos/15298825.jpg','photos/27055613.jpg',
+    'photos/2091159.jpg','photos/28157386.jpg','photos/36099143.jpg','photos/24246926.jpg',
+    'photos/37914074.jpg','photos/24244234.jpg','photos/33512155.jpg','photos/12903635.jpg'
+];
+
+const T = {
+    en: {
+        title:"TECHNOMARE AE", home:"HOME", naval:"MARITIME SERVICES", piers:"PIER LICENSING", villas:"CONSTRUCTION",
+        piersTitle:"Pier Licensing Services",
+        piersDesc:"Professional licensing and certification services for harbor piers, marinas, docks, and maritime infrastructure. We ensure all structures meet safety standards and regulatory requirements for the issuance of necessary operating permits.",
+        contact:"Contact Information", address:"Lefkada Marina 31100 Greece", rights:"All rights reserved.",
+    },
+    el: {
+        title:"TECHNOMARE AE", home:"ΑΡΧΙΚΗ", naval:"ΝΑΥΤΙΛΙΑΚΑ", piers:"ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ", villas:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ",
+        piersTitle:"ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ",
+        piersDesc:"Επαγγελματικές υπηρεσίες αδειοδότησης και πιστοποίησης για λιμενικούς προβλήτες, μαρίνες, αποβάθρες και ναυτιλιακή υποδομή. Διασφαλίζουμε ότι όλες οι κατασκευές πληρούν τα πρότυπα ασφαλείας και τις κανονιστικές απαιτήσεις για τη χορήγηση των απαραίτητων αδειών λειτουργίας.",
+        contact:"Στοιχεία Επικοινωνίας", address:"Μαρίνα Λευκάδας 31100 Ελλάδα", rights:"Όλα τα δικαιώματα κατοχυρωμένα.",
+    }
+};
+
+let lang = localStorage.getItem('technomare-language') || 'el';
+function applyLang() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (T[lang][key]) el.textContent = T[lang][key];
+    });
+    document.getElementById('langBtn').textContent = lang === 'en' ? 'ΕΛ' : 'EN';
+    document.documentElement.lang = lang;
+}
+document.getElementById('langBtn').addEventListener('click', () => {
+    lang = lang === 'en' ? 'el' : 'en';
+    localStorage.setItem('technomare-language', lang);
+    applyLang();
+});
+applyLang();
+
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuIcon = document.getElementById('menuIcon');
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    menuIcon.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+    menuIcon.classList.toggle('active');
+});
+
+// Build gallery
+const gallery = document.getElementById('gallery');
+pierImages.forEach((src, i) => {
+    const div = document.createElement('div');
+    div.className = 'relative aspect-video overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all cursor-pointer group';
+    div.innerHTML = `<img src="${src}" alt="Pier ${i+1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">`;
+    div.addEventListener('click', () => openLightbox(i));
+    gallery.appendChild(div);
+});
+
+// Lightbox
+let lbIndex = 0;
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+
+function openLightbox(i) {
+    lbIndex = i;
+    showLbImage();
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function showLbImage() {
+    lbImg.src = pierImages[lbIndex];
+    lbCaption.textContent = `${lbIndex + 1} / ${pierImages.length}`;
+}
+function closeLb() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); lbIndex = lbIndex === 0 ? pierImages.length - 1 : lbIndex - 1; showLbImage(); });
+document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); lbIndex = lbIndex === pierImages.length - 1 ? 0 : lbIndex + 1; showLbImage(); });
+lb.addEventListener('click', closeLb);
+document.addEventListener('keydown', e => {
+    if (lb.style.display === 'none') return;
+    if (e.key === 'ArrowLeft') { lbIndex = lbIndex === 0 ? pierImages.length - 1 : lbIndex - 1; showLbImage(); }
+    else if (e.key === 'ArrowRight') { lbIndex = lbIndex === pierImages.length - 1 ? 0 : lbIndex + 1; showLbImage(); }
+    else if (e.key === 'Escape') closeLb();
+});
+</script>
+</body>
+</html>
