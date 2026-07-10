@@ -61,7 +61,7 @@
                 <ul class="flex items-center gap-6">
                     <li><a href="index.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg" data-i18n="home">ΑΡΧΙΚΗ</a></li>
                     <li><a href="naval.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg" data-i18n="naval">ΝΑΥΤΙΛΙΑΚΑ</a></li>
-                    <li><a href="piers.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg" data-i18n="piers">ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ</a></li>
+                    <li><a href="piers.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg" data-i18n="piers">ΠΡΟΒΛΗΤΕΣ</a></li>
                     <li><a href="villas.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg" data-i18n="villas">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ</a></li>
                     <li><button id="langBtn" class="bg-navy-600 hover:bg-navy-700 text-white px-5 py-2 rounded-lg transition-colors font-medium text-lg">EN</button></li>
                 </ul>
@@ -75,7 +75,7 @@
                 <ul class="flex flex-col gap-2">
                     <li><a href="index.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 border-b border-navy-100" data-i18n="home">ΑΡΧΙΚΗ</a></li>
                     <li><a href="naval.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 border-b border-navy-100" data-i18n="naval">ΝΑΥΤΙΛΙΑΚΑ</a></li>
-                    <li><a href="piers.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 border-b border-navy-100" data-i18n="piers">ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ</a></li>
+                    <li><a href="piers.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2 border-b border-navy-100" data-i18n="piers">ΠΡΟΒΛΗΤΕΣ</a></li>
                     <li><a href="villas.html" class="hover:text-navy-600 transition-colors font-medium text-navy-800 text-lg block py-2" data-i18n="villas">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ</a></li>
                     <li class="mt-2"><button id="langBtnMobile" class="bg-navy-600 hover:bg-navy-700 text-white px-5 py-2 rounded-lg transition-colors font-medium text-lg w-full">EN</button></li>
                 </ul>
@@ -132,9 +132,9 @@
                     <span class="inline-block mt-4 text-navy-600 font-semibold" data-i18n="viewShips">ΝΑΥΤΙΛΙΑΚΑ →</span>
                 </a>
                 <a href="piers.html" class="stagger-item bg-gradient-to-br from-navy-50 to-navy-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 border-2 border-navy-200 cursor-pointer">
-                    <h3 class="text-2xl font-bold text-navy-800 mb-3" data-i18n="pierReg">ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ</h3>
+                    <h3 class="text-2xl font-bold text-navy-800 mb-3" data-i18n="pierReg">ΠΡΟΒΛΗΤΕΣ</h3>
                     <p class="text-navy-700" data-i18n="pierRegDesc">Αδειοδότηση και πιστοποίηση λιμενικών προβλητών, αποβαθρών και ναυτιλιακής υποδομής.</p>
-                    <span class="inline-block mt-4 text-navy-600 font-semibold" data-i18n="viewPiers">ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ →</span>
+                    <span class="inline-block mt-4 text-navy-600 font-semibold" data-i18n="viewPiers">ΠΡΟΒΛΗΤΕΣ →</span>
                 </a>
                 <a href="villas.html" class="stagger-item bg-gradient-to-br from-navy-50 to-navy-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 border-2 border-navy-200 cursor-pointer">
                     <h3 class="text-2xl font-bold text-navy-800 mb-3" data-i18n="villaReg">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ</h3>
@@ -228,14 +228,14 @@ const T = {
         statMaritime:"200+", statMaritimeLabel:"Maritime Projects",
     },
     el: {
-        title:"TECHNOMARE AE", home:"ΑΡΧΙΚΗ", naval:"ΝΑΥΤΙΛΙΑΚΑ", piers:"ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ", villas:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ",
+        title:"TECHNOMARE AE", home:"ΑΡΧΙΚΗ", naval:"ΝΑΥΤΙΛΙΑΚΑ", piers:"ΠΡΟΒΛΗΤΕΣ", villas:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ",
         welcome:"TECHNOMARE AE", subtitle:"Ο Αξιόπιστος Συνεργάτης σας στη Ναυτιλία & τις Κατασκευές",
         description:"Είμαστε μια κορυφαία αρχή που ειδικεύεται σε ολοκληρωμένες υπηρεσίες ναυτιλιακής επιθεώρησης, αδειοδότησης προβλητών και κατασκευής πολυτελών κατοικιών.",
         ourServices:"Οι Υπηρεσίες μας", shipReg:"ΝΑΥΤΙΛΙΑΚΑ",
         shipRegDesc:"Ολοκληρωμένες υπηρεσίες επιθεώρησης πλοίων για εμπορικά σκάφη, yachts και συμμόρφωση ναυτιλιακού στόλου.",
-        pierReg:"ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ", pierRegDesc:"Αδειοδότηση και πιστοποίηση λιμενικών προβλητών, αποβαθρών και ναυτιλιακής υποδομής.",
+        pierReg:"ΠΡΟΒΛΗΤΕΣ", pierRegDesc:"Αδειοδότηση και πιστοποίηση λιμενικών προβλητών, αποβαθρών και ναυτιλιακής υποδομής.",
         villaReg:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ", villaRegDesc:"Κατασκευή και σχεδιασμός πολυτελών κατοικιών και βιλών.",
-        viewShips:"ΝΑΥΤΙΛΙΑΚΑ →", viewPiers:"ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ →", viewVillas:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ →",
+        viewShips:"ΝΑΥΤΙΛΙΑΚΑ →", viewPiers:"ΠΡΟΒΛΗΤΕΣ →", viewVillas:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ →",
         contactUs:"Επικοινωνήστε μαζί μας", contactDesc:"Επικοινωνήστε με την ομάδα μας για οποιαδήποτε ερώτηση.",
         send:"Αποστολή Μηνύματος", ourLocation:"Η Τοποθεσία μας",
         locationDesc:"Επισκεφθείτε τα γραφεία μας στη Λευκάδα για προσωπική συμβουλευτική.",
