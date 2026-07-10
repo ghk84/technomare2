@@ -23,6 +23,8 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
+@keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+.page-fade-in { animation: fadeInPage 0.6s ease-out; }
         body { font-family: system-ui, -apple-system, sans-serif; }
         .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out; opacity: 0; }
         .mobile-menu.open { max-height: 500px; opacity: 1; }
@@ -73,21 +75,12 @@
 </header>
 
 <!-- Main -->
-<main class="flex-grow">
-    <!-- Page Title -->
-    <section class="bg-navy-900 text-white py-12 md:py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-3xl md:text-5xl font-bold mb-4" data-i18n="villaTitle">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ</h1>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services We Offer -->
+<main class="flex-grow page-fade-in">
+    <!-- SERVICES WE OFFER -->
     <section class="py-12 md:py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-6 text-center" data-i18n="villaServicesTitle">Υπηρεσίες που προσφέρουμε</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-6 text-center" data-i18n="villaServicesTitle">ΥΠΗΡΕΣΙΕΣ ΠΟΥ ΠΡΟΣΦΕΡΟΥΜΕ</h2>
                 <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto mb-4" data-i18n="villaServicesDesc">Στην TECHNOMARE AE, παρέχουμε ολοκληρωμένες κατασκευαστικές υπηρεσίες για πολυτελείς βίλες και κατοικίες σε όλη την περιοχή των Ιονίων Νήσων.</p>
                 <p class="text-base md:text-lg text-navy-800 font-bold text-center max-w-3xl mx-auto mb-6" data-i18n="villaServicesBold">Η εξειδίκευσή μας περιλαμβάνει:</p>
                 <ul id="servicesList" class="max-w-2xl mx-auto space-y-2"></ul>
@@ -195,7 +188,7 @@ const T = {
     en: {
         title:"TECHNOMARE AE", home:"HOME", naval:"MARITIME SERVICES", piers:"PIER LICENSING", villas:"CONSTRUCTION",
         villaTitle:"Villa Construction Services",
-        villaServicesTitle:"Services We Offer",
+        villaServicesTitle:"SERVICES WE OFFER",
         villaServicesDesc:"At TECHNOMARE AE, we provide comprehensive construction services for luxury villas and residences across the Ionian Islands region.",
         villaServicesBold:"Our expertise includes:",
         villaProjectsTitle:"Our Projects",
@@ -204,7 +197,7 @@ const T = {
     el: {
         title:"TECHNOMARE AE", home:"ΑΡΧΙΚΗ", naval:"ΝΑΥΤΙΛΙΑΚΑ", piers:"ΑΔΕΙΟΔΟΤΗΣΗ ΠΡΟΒΛΗΤΩΝ", villas:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ",
         villaTitle:"ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ",
-        villaServicesTitle:"Υπηρεσίες που προσφέρουμε",
+        villaServicesTitle:"ΥΠΗΡΕΣΙΕΣ ΠΟΥ ΠΡΟΣΦΕΡΟΥΜΕ",
         villaServicesDesc:"Στην TECHNOMARE AE, παρέχουμε ολοκληρωμένες κατασκευαστικές υπηρεσίες για πολυτελείς βίλες και κατοικίες σε όλη την περιοχή των Ιονίων Νήσων.",
         villaServicesBold:"Η εξειδίκευσή μας περιλαμβάνει:",
         villaProjectsTitle:"Έργα μας",
