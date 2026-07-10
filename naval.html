@@ -80,7 +80,7 @@
                 <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-4" data-i18n="navalTitle">ΝΑΥΤΙΛΙΑΚΑ — Επιθεώρηση Πλοίων</h2>
                 <p class="text-base md:text-lg text-gray-700 leading-relaxed" data-i18n="navalDesc">Παρέχουμε ολοκληρωμένες υπηρεσίες ναυτιλιακής επιθεώρησης για όλους τους τύπους σκαφών. Η έμπειρη ομάδα μας διενεργεί ενδελεχείς επιθεωρήσεις πλοίων, διασφαλίζοντας την πλήρη συμμόρφωση με τους διεθνείς ναυτιλιακούς κανονισμούς και την ελληνική νομοθεσία. Από εμπορικά φορτηγά πλοία έως πολυτελή yachts, εγγυώμαστε την ασφάλεια και τη νομιμότητα κάθε σκάφους μέσω λεπτομερών ελέγχων, αναθεωρήσεων πιστοποιητικών και επιτόπιων αξιολογήσεων.</p>
             </div>
-            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+            <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
     </section>
 </main>
@@ -178,7 +178,7 @@ menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
     menuIcon.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
     menuIcon.classList.toggle('active');
-}
+});
 
 // Build gallery
 const gallery = document.getElementById('gallery');
